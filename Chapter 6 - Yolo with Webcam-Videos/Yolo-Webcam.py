@@ -6,7 +6,7 @@ import math
 # cap = cv2.VideoCapture(0)  # For Webcam
 # cap.set(3, 640)
 # cap.set(4, 480)
-cap = cv2.VideoCapture('../Videos/ppe-1.mp4')  # For Video
+cap = cv2.VideoCapture('../Videos/people.mp4')  # For Video
 
 
 model = YOLO('../Yolo-Weights/yolov8n.pt')

@@ -34,6 +34,8 @@ while True:
     success, img = cap.read()
     imgRegion = cv2.bitwise_and(img, mask)
 
+    imgGraph = cv2.imread('graphics.png', cv2.IMREAD_UNCHANGED)
+    img = cvzone.overlayPNG(img, imgGraph, (0,0))
     results = model(imgRegion, stream=True)
 
     detections = np.empty((0, 5))
@@ -82,7 +84,8 @@ while True:
                 totalCount.append(id)
                 cv2.line(img, (limits[0], limits[1]), (limits[2], limits[3]), (0, 255, 0), 5)
 
-    cvzone.putTextRect(img, f'Count: {len(totalCount)}', (50, 50))
+    # cvzone.putTextRect(img, f'Count: {len(totalCount)}', (50, 50))
+    cv2.putText(img, str(len(totalCount)), (255,100), cv2.FONT_HERSHEY_PLAIN, 5, (50,50,255), 8)
     cv2.imshow("Image", img)
     # cv2.imshow("ImageRegion", imgRegion)
     cv2.waitKey(1)

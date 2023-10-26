@@ -8,7 +8,7 @@ from sort import *
 cap = cv2.VideoCapture('../Videos/people.mp4')  # For Video
 
 
-model = YOLO('../Yolo-Weights/yolov8l.pt')
+model = YOLO('../Yolo-Weights/yolov8n.pt')
 
 classNames = ["person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", "boat",
               "traffic light", "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat",
@@ -94,5 +94,5 @@ while True:
     cv2.putText(img, str(len(totalCountUp)), (929, 345), cv2.FONT_HERSHEY_PLAIN, 5, (139, 195, 75), 7)
     cv2.putText(img, str(len(totalCountDown)), (1191, 345), cv2.FONT_HERSHEY_PLAIN, 5, (0, 0, 255), 7)
     cv2.imshow("Image", img)
-    # cv2.imshow("ImageRegion", imgRegion)
+    cv2.imshow("ImageRegion", imgRegion)
     cv2.waitKey(1)
